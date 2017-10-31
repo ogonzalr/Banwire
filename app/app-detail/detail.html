@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="detail">
+  <head>
+  
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="detail.controller.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="app-content/app.css"  rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="AccordionDemoCtrl">
+
+    <accordion close-others=false class="table">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <div class="accordion-toggle">
+            <div class="cell">id</div>
+            <div class="cell">Nombre</div>
+            <div class="cell">Monto</div>
+            <div class="cell">Estatus</div>
+            <div class="cell">Fecha</div>
+          </div>
+        </div>
+      </div>
+      <accordion-group  ng-repeat="x in pro | orderBy:orderProp">
+           <uib-accordion-heading>
+            <div class="row">
+              <div class="cell"><b>{{x.a}}</b></div>
+              <div class="cell">{{x.b}}</div>
+              <div class="cell"><u>{{x.c}}</u></div>
+              <div class="cell">{{x.d}}</div>
+            </div>
+            </uib-accordion-heading>
+          
+       <div>
+         Test Data
+       </div>
+       
+      </accordion-group>
+    </accordion>
+
+</div>
+  </body>
+</html>

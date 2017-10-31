@@ -1,0 +1,21 @@
+body {
+    padding: 20px 0;
+}
+
+.flash-message {
+    margin-top: 20px;
+}
+
+
+
+.table{
+  display: table;
+  width:100%
+}
+.row{
+  display: table-row;
+}
+.cell{
+  display: table-cell; 
+  width:20%
+}
