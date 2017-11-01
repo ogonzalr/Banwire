@@ -1,48 +1,54 @@
-<!doctype html>
-<html ng-app="detail">
+<!DOCTYPE html>
+<html ng-app="testApp">
+
   <head>
-  
-   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-    <script src="detail.controller.js"></script>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="app-content/app.css"  rel="stylesheet">
+    <link data-require="font-awesome@*" data-semver="4.5.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" />
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script data-require="angular.js@1.5.5" data-semver="1.5.5" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="script.js"></script>
   </head>
-  <body>
 
-<div ng-controller="AccordionDemoCtrl">
-
-    <accordion close-others=false class="table">
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <div class="accordion-toggle">
-            <div class="cell">id</div>
-            <div class="cell">Nombre</div>
-            <div class="cell">Monto</div>
-            <div class="cell">Estatus</div>
-            <div class="cell">Fecha</div>
-          </div>
-        </div>
-      </div>
-      <accordion-group  ng-repeat="x in pro | orderBy:orderProp">
-           <uib-accordion-heading>
-            <div class="row">
-              <div class="cell"><b>{{x.a}}</b></div>
-              <div class="cell">{{x.b}}</div>
-              <div class="cell"><u>{{x.c}}</u></div>
-              <div class="cell">{{x.d}}</div>
-            </div>
-            </uib-accordion-heading>
-          
-       <div>
-         Test Data
-       </div>
-       
-      </accordion-group>
-    </accordion>
-
-</div>
+  <body ng-controller="testController">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">ID Transacción</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="data in detail">
+        <tr>
+          <td>
+            <a class="btn btn-link" ng-init="toggle[$index] = false" ng-click="toggle[$index] = !toggle[$index]">
+              <span class="glyphicon glyphicon-plus" ng-if="!toggle[$index]"></span>
+              <span class="glyphicon glyphicon-minus" ng-if="toggle[$index]"></span>
+            </a>
+          </td>
+          <td>	{{data.transaccion_id}}</td>
+          <td>	{{data.response.date}}</td>
+        </tr>
+        <tr ng-if="toggle[$index]"> 
+			<td></td>
+			<td colspan ="2">
+				<ul class="list-group">
+							
+					<li class="list-group-item">Comercio: {{data.response.user}} </li>
+					<li class="list-group-item">Usuario: {{data.user_id}} </li>
+					<li class="list-group-item">Email: {{data.params.mail}} </li>
+					<li class="list-group-item">No. autorización: {{data.response.code_auth}} </li>
+					<li class="list-group-item">Últimos dígitos de la tarjeta: {{data.response.card}} </li>
+					<li class="list-group-item">Servicio: {{data.response.response}} </li>
+					<li class="list-group-item">Monto: {{data.response.monto}} </li>
+					<li class="list-group-item">Nombre del tarjetahabiente {{data.response.client}} </li>
+					<li class="list-group-item">Último movimiento {{data.response.order_id}} </li>
+				  
+				</ul>
+			</td>
+        </tr>
+		
+      </tbody>
+    </table>
   </body>
+
 </html>

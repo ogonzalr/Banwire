@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   padding-top: 100px;
+   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   
 }
-
+.form-container {
+   width: 400px;
+   margin: auto;
+}
+.credits {
+ border-top: 1px solid #ddd;
+    margin-top: 40px;
+    padding-top: 20px;
+}
 a {
-  color: #00B7FF;
+ color: #00B7FF;
 }
